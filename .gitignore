@@ -27,3 +27,13 @@
 *.exe
 *.out
 *.app
+*.pdb
+TLMVPSP/TLMVPSP/Debug/vc140.idb
+*.lastbuildstate
+TLMVPSP/TLMVPSP/Debug/TLMVPSP.tlog/link.write.1.tlog
+*.tlog
+TLMVPSP/TLMVPSP/Debug/TLMVPSP.log
+*.opendb
+TLMVPSP/Debug/TLMVPSP.ilk
+*.suo
+TLMVPSP/.vs/TLMVPSP/v14/.suo
