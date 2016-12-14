@@ -1,7 +1,7 @@
 #include "question.h"
 
 
-
+#include <iostream>
 question::question()
 {
 }
@@ -14,23 +14,24 @@ question::~question()
 
 void question::init(std::string s[6])
 {
+	setlocale(LC_ALL, "fr-FR");
 	_question = s[0];
 	_reponses[0] = s[1];
 	_reponses[1] = s[2];
 	_reponses[2] = s[3];
 	_reponses[3] = s[4];
 	_reponses[4] = s[5];
-
 }
 
 
 // Retourne aléatoirement la bonne réponse et une mauvaise
 void question::getDuo(std::string s[2])
 {
+	setlocale(LC_ALL, "fr-FR");
 	//Initialiser le random stuff
 	std::random_device rd;
 	std::mt19937 mt(rd());
-	std::uniform_int_distribution<uint32_t> m(2, 2);		//choisit une mauvaise réponse
+	std::uniform_int_distribution<uint32_t> m(1, 4);		//choisit une mauvaise réponse
 	int mauvaise = m(mt);
 	std::uniform_int_distribution<uint32_t> b(0, 1);	//indique si la bonne réponse ira à la place 0 ou 1
 	int bonnePlace = b(mt);
@@ -46,13 +47,14 @@ void question::getDuo(std::string s[2])
 // Retourne aléatoirement la bonne réponse et trois mauvaises
 void question::getCarre(std::string s[4])
 {
+	setlocale(LC_ALL, "fr-FR");
 
 	//Placer quatre mauvaises réponses dans la sortie
 
-	s[0] = _reponses[2];
-	s[1] = _reponses[3];
-	s[2] = _reponses[4];
-	s[3] = _reponses[5];
+	s[0] = _reponses[1];
+	s[1] = _reponses[2];
+	s[2] = _reponses[3];
+	s[3] = _reponses[4];
 
 	//Initialiser le random stuff
 	std::random_device rd;

@@ -5,7 +5,7 @@ class question
 {
 private:
 	std::string _question;
-	std::string _reponses[4];
+	std::string _reponses[5];
 public:
 	question();
 	~question();
