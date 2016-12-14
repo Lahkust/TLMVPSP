@@ -111,6 +111,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="deck.cpp" />
+    <ClCompile Include="gestionnaire.cpp" />
     <ClCompile Include="joueur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="question.cpp" />
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="deck.h" />
+    <ClInclude Include="gestionnaire.h" />
     <ClInclude Include="joueur.h" />
     <ClInclude Include="question.h" />
     <ClInclude Include="saisieSecurisee.h" />
