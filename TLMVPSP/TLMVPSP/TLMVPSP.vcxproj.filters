@@ -30,6 +30,12 @@
     <ClCompile Include="manche.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gestionnaire.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="saisieSecurisee.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="question.h">
@@ -45,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gestionnaire.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="saisieSecurisee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

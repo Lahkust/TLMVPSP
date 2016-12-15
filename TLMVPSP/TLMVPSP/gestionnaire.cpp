@@ -44,20 +44,19 @@ void gestionnaire::init()
 // lance une partie
 void gestionnaire::play()
 {
-	//sf::VideoMode mode(1080, 720);
-	//sf::RenderWindow window(mode,"foobar");
+	sf::VideoMode mode(1080, 720,32);
+	sf::RenderWindow window(mode,"foobar");
 
+	while (window.isOpen()) {                 // Is the window still opened?
+		sf::Event event;                        // We create an event
+		while (window.pollEvent(event)) {       // We fill the event from the window
+			if (event.type == sf::Event::Closed)  // If the event is close window
+				window.close();                     // We close it ;)
+		}
 
-	//while (window.isOpen()) {                 // Is the window still opened?
-	//	sf::Event event;                        // We create an event
-	//	while (window.pollEvent(event)) {       // We fill the event from the window
-	//		if (event.type == sf::Event::Closed)  // If the event is close window
-	//			window.close();                     // We close it ;)
-	//	}
-
-	//	window.clear();                         // This line clear the screen
-	//	window.display();                       // And we display the window
-	//}
+		window.clear();                         // This line clear the screen
+		window.display();                       // And we display the window
+	}
 
 
 
