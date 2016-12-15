@@ -30,8 +30,8 @@ void gestionnaire::init()
 	nomFichier = saisirStringNonVide("Veuillez entrer le nom du fichier dans lequel se trouve le second deck.");
 	nomFichier = "\questions\\" + nomFichier + ".deck";
 	_deck[1].init(nomFichier);
-	_deck[1].melanger();	
-	
+	_deck[1].melanger();
+
 	nomFichier = saisirStringNonVide("Veuillez entrer le nom du fichier dans lequel se trouve le troisième deck.");
 	nomFichier = "\questions\\" + nomFichier + ".deck";
 	_deck[2].init(nomFichier);
@@ -45,7 +45,7 @@ void gestionnaire::init()
 void gestionnaire::play(sf::RenderWindow* screen[2])
 {
 	sf::VideoMode mode(1080, 720, 32);
-	sf::RenderWindow window(mode,"C");
+	sf::RenderWindow window(mode, "C");
 
 	//C0
 	//button jouer
@@ -103,7 +103,7 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 
 
 		window.clear(sf::Color::White);							// This line clear the screen
-		
+
 		window.draw(butJouer);
 		window.draw(butDemo);
 		window.draw(butInfo);
