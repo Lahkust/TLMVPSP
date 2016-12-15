@@ -1,39 +1,21 @@
 #include <iostream>
 #include <string>
-#include "question.h"
-#include "deck.h"
+#include "gestionnaire.h"
 #include "saisieSecurisee.h"
 
 
 
-void main()
+int main(int argc, const char **argv)
 {
-
 	setlocale(LC_ALL, "fr-FR");
-	//déclarations
-	string nomFichier;			//le nom du fichier
-	deck questions;
-	question quest;
-	string reponses[4];
+	
+	gestionnaire jeu;
 
-	nomFichier = saisirStringNonVide("Veuillez entrer le nom du fichier dans lequel se trouve le deck.");
-	nomFichier = "\questions\\" + nomFichier + ".deck";
-
-
-	questions.init(nomFichier);
-	questions.melanger();
-	quest = questions.tirer();
-
-	cout << quest.getQuestion()<<endl;
-	quest.getCarre(reponses);
-	cout << reponses[0] << endl
-		<< reponses[1] << endl
-		<< reponses[2] << endl
-		<< reponses[3] <<endl<<endl;
-
-
+	jeu.init();
+	jeu.play();
 
 	pause("Tout est OK!");
+	return 0;
 }
 
 
