@@ -1,8 +1,9 @@
 #pragma once
+#include <iostream>
 #include <stack>
 #include <string>
 #include "question.h"
-
+#include "saisieSecurisee.h"
 class deck
 {
 private:

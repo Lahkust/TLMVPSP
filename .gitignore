@@ -39,3 +39,8 @@ TLMVPSP/Debug/TLMVPSP.ilk
 TLMVPSP/.vs/TLMVPSP/v14/.suo
 *.db
 TLMVPSP/TLMVPSP.VC.db
+*.enc
+TLMVPSP/.vs/TLMVPSP/v14/.suo
+*.db
+*.filters
+TLMVPSP/TLMVPSP/TLMVPSP.vcxproj.filters

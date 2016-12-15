@@ -111,17 +111,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="deck.cpp" />
+    <ClCompile Include="gestionnaire.cpp" />
     <ClCompile Include="joueur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="manche.cpp" />
     <ClCompile Include="question.cpp" />
+    <ClCompile Include="saisieSecurisee.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="deck.h" />
+    <ClInclude Include="gestionnaire.h" />
     <ClInclude Include="joueur.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="manche.h" />
     <ClInclude Include="question.h" />
+    <ClInclude Include="saisieSecurisee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
