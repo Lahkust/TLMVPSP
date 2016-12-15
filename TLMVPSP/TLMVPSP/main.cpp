@@ -35,10 +35,6 @@ int main(int argc, const char **argv)
 
 	}
 
-
-
-
-
 	pause("Tout est OK!");
 	return 0;
 }

@@ -47,8 +47,20 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 
 {
 
+	sf::Image* blank = new sf::Image;
+	blank->create(50, 50, sf::Color(255, 255, 255));
+	sf::Image* grey = new sf::Image;
+	grey->create(50, 50, sf::Color(255, 255, 255));
 
+	sf::String text = "T";
 
+	sf::Vector2f place;
+	place.x = 128;
+	place.y = 128;
+
+	Button b(blank,grey,text,place);
+	std::cout << "bHJHJKBJ";
+	screen[0]->draw(*b.getSprite());
 
 	for (_actuelle = 0; _actuelle < 3; ++_actuelle)
 	{
