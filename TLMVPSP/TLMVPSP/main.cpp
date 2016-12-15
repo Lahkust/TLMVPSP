@@ -84,7 +84,7 @@ int main(int argc, const char **argv)
 
 		screens[0]->display();							// And we display the window
 		screens[1]->display();
-		//jeu.play(screens);
+		jeu.play(screens);
 	}
 
 	return 0;
