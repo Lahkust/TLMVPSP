@@ -10,12 +10,6 @@ int main(int argc, const char **argv)
 	
 	gestionnaire jeu;
 
-<<<<<<< HEAD
-	sf::VideoMode mode(800, 600, 32);
-	sf::RenderWindow windowC(mode, "Control");
-
-	sf::RenderWindow windowP(mode, "Projection");
-
 	//C0
 	//button jouer
 	sf::RectangleShape butJouer(sf::Vector2f(150, 100));
@@ -61,28 +55,12 @@ int main(int argc, const char **argv)
 	txtQuitter.setFillColor(sf::Color::Black);
 	txtQuitter.setPosition(sf::Vector2f(325, 475));
 
-	//jeu.init();		//initialise le decks
-
-	while (windowC.isOpen()) {                 // Is the window still opened?
-		sf::Event event;                        // We create an event
-		while (windowC.pollEvent(event)) {       // We fill the event from the window
-			if (event.type == sf::Event::Closed)  // If the event is close window
-				windowC.close();                     // We close it ;)
-
-
-			/*if (event.type == sf::Event::MouseButtonPressed)
-			{
-				jeu.demo();
-
-			}*/
-=======
 	jeu.init();
 
-	sf::VideoMode mode(1080, 720, 32);
+	sf::VideoMode mode(800, 600, 32);
 	sf::RenderWindow* screens[2];
 	screens[0] = new sf::RenderWindow(mode, "Contrôle");
 	screens[1] = new sf::RenderWindow(mode, "Projecteur");
->>>>>>> c355d20f2c4c52fc86f7d9b851a5ab94c3c10d0a
 
 	while (screens[0]->isOpen()) {						// Is the window still opened?
 		sf::Event event;								// We create an event
@@ -92,32 +70,21 @@ int main(int argc, const char **argv)
 		}
 
 		screens[0]->clear();							// This line clear the screen
-		screens[0]->display();							// And we display the window
 		screens[1]->clear();
+
+		screens[0]->draw(butJouer);
+		screens[0]->draw(butDemo);
+		screens[0]->draw(butInfo);
+		screens[0]->draw(butQuitter);
+
+		screens[0]->draw(txtJouer);
+		screens[0]->draw(txtDemo);
+		screens[0]->draw(txtInfo);
+		screens[0]->draw(txtQuitter);
+
+		screens[0]->display();							// And we display the window
 		screens[1]->display();
-
-
-<<<<<<< HEAD
-		windowC.clear(sf::Color::White);			// Clear control
-		windowP.clear(sf::Color::White);			// Clear projection
-
-		windowC.draw(butJouer);
-		windowC.draw(butDemo);
-		windowC.draw(butInfo);
-		windowC.draw(butQuitter);
-
-		windowC.draw(txtJouer);
-		windowC.draw(txtDemo);
-		windowC.draw(txtInfo);
-		windowC.draw(txtQuitter);
-
-		windowC.display();                      // display control
-		windowP.display();						// display projection
-=======
-		jeu.play(screens);
-
-
->>>>>>> c355d20f2c4c52fc86f7d9b851a5ab94c3c10d0a
+		//jeu.play(screens);
 	}
 
 	return 0;
