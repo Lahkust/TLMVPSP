@@ -1,7 +1,6 @@
 #include "gestionnaire.h"
-#include "button.hpp"
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
+
+
 
 gestionnaire::gestionnaire()
 {
@@ -31,8 +30,8 @@ void gestionnaire::init()
 	nomFichier = saisirStringNonVide("Veuillez entrer le nom du fichier dans lequel se trouve le second deck.");
 	nomFichier = "\questions\\" + nomFichier + ".deck";
 	_deck[1].init(nomFichier);
-	_deck[1].melanger();	
-	
+	_deck[1].melanger();
+
 	nomFichier = saisirStringNonVide("Veuillez entrer le nom du fichier dans lequel se trouve le troisième deck.");
 	nomFichier = "\questions\\" + nomFichier + ".deck";
 	_deck[2].init(nomFichier);
@@ -44,23 +43,82 @@ void gestionnaire::init()
 
 // lance une partie
 void gestionnaire::play(sf::RenderWindow* screen[2])
-
 {
+	sf::VideoMode mode(1080, 720, 32);
+	sf::RenderWindow window(mode, "C");
 
-	sf::Image* blank = new sf::Image;
-	blank->create(50, 50, sf::Color(255, 255, 255));
-	sf::Image* grey = new sf::Image;
-	grey->create(50, 50, sf::Color(255, 255, 255));
+	//C0
+	//button jouer
+	sf::RectangleShape butJouer(sf::Vector2f(150, 100));
+	butJouer.setFillColor(sf::Color(50, 125, 200));
+	butJouer.setPosition(sf::Vector2f(500, 50));
 
-	sf::String text = "T";
+	//button démo
+	sf::RectangleShape butDemo(sf::Vector2f(150, 100));
+	butDemo.setFillColor(sf::Color(50, 125, 200));
+	butDemo.setPosition(sf::Vector2f(500, 200));
 
-	sf::Vector2f place;
-	place.x = 128;
-	place.y = 128;
+	//button info
+	sf::RectangleShape butInfo(sf::Vector2f(150, 100));
+	butInfo.setFillColor(sf::Color(50, 125, 200));
+	butInfo.setPosition(sf::Vector2f(500, 350));
 
-	Button b(blank,grey,text,place);
-	std::cout << "bHJHJKBJ";
-	screen[0]->draw(*b.getSprite());
+	//button quitter
+	sf::RectangleShape butQuitter(sf::Vector2f(150, 100));
+	butQuitter.setFillColor(sf::Color(50, 125, 200));
+	butQuitter.setPosition(sf::Vector2f(500, 500));
+
+	//load font
+	sf::Font font;
+	if (!font.loadFromFile("arial.ttf"))
+	{
+		// error...
+	}
+
+	// texte jouer
+	sf::Text txtJouer("Jouer", font, 50);
+	txtJouer.setFillColor(sf::Color::Black);
+	txtJouer.setPosition(sf::Vector2f(500, 50));
+	// texte démo
+	sf::Text txtDemo("Démo", font, 50);
+	txtDemo.setFillColor(sf::Color::Black);
+	txtDemo.setPosition(sf::Vector2f(500, 200));
+	// texte info
+	sf::Text txtInfo("Info", font, 50);
+	txtInfo.setFillColor(sf::Color::Black);
+	txtInfo.setPosition(sf::Vector2f(500, 350));
+	// texte quitter
+	sf::Text txtQuitter("Quitter", font, 50);
+	txtQuitter.setFillColor(sf::Color::Black);
+	txtQuitter.setPosition(sf::Vector2f(500, 500));
+
+
+	while (window.isOpen()) {                 // Is the window still opened?
+		sf::Event event;                        // We create an event
+		while (window.pollEvent(event)) {       // We fill the event from the window
+			if (event.type == sf::Event::Closed)  // If the event is close window
+				window.close();                     // We close it ;)
+		}
+
+
+
+		window.clear(sf::Color::White);							// This line clear the screen
+
+		window.draw(butJouer);
+		window.draw(butDemo);
+		window.draw(butInfo);
+		window.draw(butQuitter);
+
+		window.draw(txtJouer);
+		window.draw(txtDemo);
+		window.draw(txtInfo);
+		window.draw(txtQuitter);
+
+		window.display();                       // And we display the window
+	}
+
+
+
 
 	for (_actuelle = 0; _actuelle < 3; ++_actuelle)
 	{
@@ -69,10 +127,4 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 
 	}
 
-}
-
-
-// Joue la démo, 0: contrôle 1: projecteur
-void gestionnaire::demo(sf::RenderWindow* screen[2])
-{
 }

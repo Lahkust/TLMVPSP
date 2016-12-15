@@ -2,12 +2,13 @@
 #include "joueur.h"
 #include "list.h"
 #include "question.h"
+#include <SFML\Graphics.hpp>
 
 class manche
 {
 private:
 	list<joueur> _joueur;
-	list<joueur>::iterator it;
+	list<joueur>::iterator _it;
 
 public:
 	manche();
