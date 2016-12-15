@@ -43,32 +43,9 @@ void gestionnaire::init()
 
 
 // lance une partie
-void gestionnaire::play()
+void gestionnaire::play(sf::RenderWindow* screen[2])
 
 {
-	sf::VideoMode mode(1080, 720,32);
-	sf::RenderWindow window(mode,"foobar");
-	//sf::RenderWindow window;
-
-	sf::RenderWindow window2(mode, "foobar");
-
-	while (window.isOpen()) {						// Is the window still opened?
-		sf::Event event;							// We create an event
-		while (window.pollEvent(event)) {			// We fill the event from the window
-			if (event.type == sf::Event::Closed)	// If the event is close window
-				window.close();                     // We close it ;)
-		}
-
-		window.clear();								// This line clear the screen
-		window.display();							// And we display the window
-		window2.clear();
-		window2.display();
-
-
-
-
-
-	}
 
 
 
@@ -80,4 +57,10 @@ void gestionnaire::play()
 
 	}
 
+}
+
+
+// Joue la démo, 0: contrôle 1: projecteur
+void gestionnaire::demo(sf::RenderWindow* screen[2])
+{
 }
