@@ -42,7 +42,7 @@ void gestionnaire::init()
 
 
 // lance une partie
-void gestionnaire::play()
+void gestionnaire::play(sf::RenderWindow* screen[2])
 {
 	sf::VideoMode mode(1080, 720, 32);
 	sf::RenderWindow window(mode,"C");
@@ -120,11 +120,11 @@ void gestionnaire::play()
 
 
 
-	for (_actuelle = 0; _actuelle < 3; ++_actuelle)
+	/*for (_actuelle = 0; _actuelle < 3; ++_actuelle)
 	{
 		_manche[_actuelle] = manche(_actuelle);
 
 
-	}
+	}*/
 
 }

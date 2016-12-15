@@ -12,7 +12,9 @@ int main(int argc, const char **argv)
 	gestionnaire jeu;
 
 	sf::VideoMode mode(800, 600, 32);
-	sf::RenderWindow window(mode, "C");
+	sf::RenderWindow windowC(mode, "Control");
+
+	sf::RenderWindow windowP(mode, "Projection");
 
 	//C0
 	//button jouer
@@ -61,11 +63,11 @@ int main(int argc, const char **argv)
 
 	//jeu.init();		//initialise le decks
 
-	while (window.isOpen()) {                 // Is the window still opened?
+	while (windowC.isOpen()) {                 // Is the window still opened?
 		sf::Event event;                        // We create an event
-		while (window.pollEvent(event)) {       // We fill the event from the window
+		while (windowC.pollEvent(event)) {       // We fill the event from the window
 			if (event.type == sf::Event::Closed)  // If the event is close window
-				window.close();                     // We close it ;)
+				windowC.close();                     // We close it ;)
 
 
 			/*if (event.type == sf::Event::MouseButtonPressed)
@@ -78,22 +80,23 @@ int main(int argc, const char **argv)
 
 
 
-		window.clear(sf::Color::White);			// This line clear the screen
+		windowC.clear(sf::Color::White);			// Clear control
+		windowP.clear(sf::Color::White);			// Clear projection
 
-		window.draw(butJouer);
-		window.draw(butDemo);
-		window.draw(butInfo);
-		window.draw(butQuitter);
+		windowC.draw(butJouer);
+		windowC.draw(butDemo);
+		windowC.draw(butInfo);
+		windowC.draw(butQuitter);
 
-		window.draw(txtJouer);
-		window.draw(txtDemo);
-		window.draw(txtInfo);
-		window.draw(txtQuitter);
+		windowC.draw(txtJouer);
+		windowC.draw(txtDemo);
+		windowC.draw(txtInfo);
+		windowC.draw(txtQuitter);
 
-		window.display();                       // And we display the window
+		windowC.display();                      // display control
+		windowP.display();						// display projection
 	}
 
-	pause("Tout est OK!");
 	return 0;
 }
 
