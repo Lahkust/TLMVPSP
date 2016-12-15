@@ -123,6 +123,7 @@
     <ClCompile Include="saisieSecurisee.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="button.hpp" />
     <ClInclude Include="deck.h" />
     <ClInclude Include="gestionnaire.h" />
     <ClInclude Include="joueur.h" />

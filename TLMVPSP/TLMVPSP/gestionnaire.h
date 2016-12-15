@@ -18,6 +18,8 @@ public:
 	// Initialisation
 	void init();
 	// lance une partie
-	void play();
+	void play(sf::RenderWindow* screen[2]);
+	// Joue la démo, 0: contrôle 1: projecteur
+	void demo(sf::RenderWindow* screen[2]);
 };
 
