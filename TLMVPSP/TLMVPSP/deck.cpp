@@ -1,3 +1,11 @@
+/* En-tête du programme
+====================
+Programme :			deck.cpp
+Auteur:				Guillaume Bergs
+Date de dernière modification :  2016/12/15
+Description :		gère la pile de question, permet de la mélanger et d'en donner une
+To Do :				améliorer le mélange
+*/
 #include "deck.h"
 
 

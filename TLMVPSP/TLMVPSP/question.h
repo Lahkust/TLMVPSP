@@ -1,3 +1,12 @@
+/* En-tête du programme
+====================
+Programme :			question.h
+Auteur:				Guillaume Bergs
+Date de dernière modification :  2016/12/15
+Description :		contient une question et ses réponses, peut vérifier si une string donnée est la bonne réponse et donner des réponses aléatoires
+To Do :				améliorer la donne aléatoire de réponses
+*/
+
 #pragma once
 #include <random>
 #include <string>
