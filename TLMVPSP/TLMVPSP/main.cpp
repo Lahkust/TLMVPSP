@@ -104,7 +104,7 @@ int main(int argc, const char **argv)
 					if ((sf::Mouse::getPosition().y > butDemo.getGlobalBounds().top) &&
 						(sf::Mouse::getPosition().y < (butDemo.getGlobalBounds().top + butDemo.getGlobalBounds().height)))
 					{
-						jeu.play(screens);
+						jeu.demo(screens);
 						cout << "allo allo" << endl;
 					}
 				if ((sf::Mouse::getPosition().x > butInfo.getGlobalBounds().left) &&

@@ -44,6 +44,8 @@ void gestionnaire::init()
 // lance une partie
 void gestionnaire::play(sf::RenderWindow* screen[2])
 {
+
+	setlocale(LC_ALL, "fr-FR");
 	demo(screen);
 	////C0
 	////button jouer
@@ -147,6 +149,7 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 // Joue la démo, 0: contrôle 1: projecteur
 void gestionnaire::demo(sf::RenderWindow* screen[2])
 {
+	setlocale(LC_ALL, "fr-FR");
 
 	///////Décision de deck
 
@@ -271,10 +274,14 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	quest.setPosition(sf::Vector2f(0, 0));
 
 	//Menu
-	sf::RectangleShape menu(sf::Vector2f(380, 50));
-	menu.setFillColor(sf::Color(200, 200, 200));
-	menu.setPosition(sf::Vector2f(10, 500));
+	sf::RectangleShape butMenu(sf::Vector2f(380, 50));
+	butMenu.setFillColor(sf::Color(200, 200, 200));
+	butMenu.setPosition(sf::Vector2f(10, 500));
 
+	//Suivant
+	sf::RectangleShape butSuivant(sf::Vector2f(380, 50));
+	butSuivant.setFillColor(sf::Color(200, 200, 200));
+	butSuivant.setPosition(sf::Vector2f(410, 500));
 
 
 	// texte UL
@@ -299,6 +306,18 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	txtQ.setFillColor(sf::Color::Black);
 	txtQ.setPosition(sf::Vector2f(0, 0));
 
+	// texte menu
+	sf::Text txtMenu("Menu", font, 25);
+	txtMenu.setFillColor(sf::Color::Black);
+	txtMenu.setPosition(sf::Vector2f(10, 500));
+
+	// texte suivant
+	sf::Text txtSuivant("Valider", font, 25);
+	txtSuivant.setFillColor(sf::Color::Black);
+	txtSuivant.setPosition(sf::Vector2f(410, 500));
+
+
+
 
 	_deck.melanger();
 	_question = _deck.tirer();
@@ -313,7 +332,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 
 	choice = false;
 
-	while (screen[0]->isOpen()) 
+	while (screen[0]->isOpen() && (!choice)) 
 	{						// Is the window still opened?
 		sf::Event event;								// We create an event
 
@@ -334,6 +353,10 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 					{
 						//Réponse UL
 						cout << "allo allo" << endl;
+						butUL.setFillColor(sf::Color(95, 175, 255));
+						butUR.setFillColor(sf::Color(200, 200, 200));
+						butDL.setFillColor(sf::Color(200, 200, 200));
+						butDR.setFillColor(sf::Color(200, 200, 200));
 					}
 				if ((sf::Mouse::getPosition().x > butUR.getGlobalBounds().left) &&
 					(sf::Mouse::getPosition().x < (butUR.getGlobalBounds().left + butUR.getGlobalBounds().width)))
@@ -342,6 +365,10 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 					{
 						//Réponse UR
 						cout << "allo allo" << endl;
+						butUL.setFillColor(sf::Color(200, 200, 200));
+						butUR.setFillColor(sf::Color(95, 175, 255));
+						butDL.setFillColor(sf::Color(200, 200, 200));
+						butDR.setFillColor(sf::Color(200, 200, 200));
 					}
 				if ((sf::Mouse::getPosition().x > butDL.getGlobalBounds().left) &&
 					(sf::Mouse::getPosition().x < (butDL.getGlobalBounds().left + butDL.getGlobalBounds().width)))
@@ -350,6 +377,10 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 					{
 						//Réponse DL
 						cout << "allo allo" << endl;
+						butUL.setFillColor(sf::Color(200, 200, 200));
+						butUR.setFillColor(sf::Color(200, 200, 200));
+						butDL.setFillColor(sf::Color(95, 175, 255));
+						butDR.setFillColor(sf::Color(200, 200, 200));
 					}
 				if ((sf::Mouse::getPosition().x > butDR.getGlobalBounds().left) &&
 					(sf::Mouse::getPosition().x < (butDR.getGlobalBounds().left + butDR.getGlobalBounds().width)))
@@ -358,7 +389,21 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 					{
 						//Réponse DR
 						cout << "allo allo" << endl;
+						butUL.setFillColor(sf::Color(200, 200, 200));
+						butUR.setFillColor(sf::Color(200, 200, 200));
+						butDL.setFillColor(sf::Color(200, 200, 200));
+						butDR.setFillColor(sf::Color(95, 175, 255));
 					}
+				if ((sf::Mouse::getPosition().x > butMenu.getGlobalBounds().left) &&
+					(sf::Mouse::getPosition().x < (butMenu.getGlobalBounds().left + butMenu.getGlobalBounds().width)))
+					if ((sf::Mouse::getPosition().y > butMenu.getGlobalBounds().top) &&
+						(sf::Mouse::getPosition().y < (butMenu.getGlobalBounds().top + butMenu.getGlobalBounds().height)))
+					{
+						//Réponse DR
+						cout << "allo allo" << endl;
+						choice = true;
+					}
+
 				break;
 			}
 		}
@@ -371,6 +416,9 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		screen[0]->draw(butDL);
 		screen[0]->draw(butDR);
 		screen[0]->draw(quest);
+		screen[0]->draw(butMenu);
+		screen[0]->draw(butSuivant);
+
 
 
 		screen[0]->draw(txtUL);
@@ -378,6 +426,8 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		screen[0]->draw(txtDL);
 		screen[0]->draw(txtDR);
 		screen[0]->draw(txtQ);
+		screen[0]->draw(txtMenu);
+		screen[0]->draw(txtSuivant);
 
 		screen[1]->draw(butUL);
 		screen[1]->draw(butUR);
