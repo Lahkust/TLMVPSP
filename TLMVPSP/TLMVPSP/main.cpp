@@ -64,7 +64,7 @@ int main(int argc, const char **argv)
 	txtTitre.setFillColor(sf::Color::Black);
 	txtTitre.setPosition(sf::Vector2f(70, 200));
 
-	jeu.init();
+	//jeu.init();
 
 	sf::VideoMode mode(800, 600, 32);
 	sf::RenderWindow* screens[2];
@@ -104,7 +104,7 @@ int main(int argc, const char **argv)
 					if ((sf::Mouse::getPosition().y > butDemo.getGlobalBounds().top) &&
 						(sf::Mouse::getPosition().y < (butDemo.getGlobalBounds().top + butDemo.getGlobalBounds().height)))
 					{
-						//jeu.play(screens);
+						jeu.play(screens);
 						cout << "allo allo" << endl;
 					}
 				if ((sf::Mouse::getPosition().x > butInfo.getGlobalBounds().left) &&
