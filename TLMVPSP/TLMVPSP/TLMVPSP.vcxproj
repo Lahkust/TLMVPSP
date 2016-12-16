@@ -114,6 +114,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="button.cpp" />
     <ClCompile Include="deck.cpp" />
     <ClCompile Include="gestionnaire.cpp" />
     <ClCompile Include="joueur.cpp" />
@@ -123,7 +124,7 @@
     <ClCompile Include="saisieSecurisee.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="button.hpp" />
+    <ClInclude Include="button.h" />
     <ClInclude Include="deck.h" />
     <ClInclude Include="gestionnaire.h" />
     <ClInclude Include="joueur.h" />

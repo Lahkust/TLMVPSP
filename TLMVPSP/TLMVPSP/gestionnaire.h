@@ -4,6 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include "deck.h"
 #include "manche.h"
+#include "button.h"
 
 class gestionnaire
 {

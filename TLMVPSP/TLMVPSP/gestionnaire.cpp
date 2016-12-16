@@ -44,6 +44,7 @@ void gestionnaire::init()
 // lance une partie
 void gestionnaire::play(sf::RenderWindow* screen[2])
 {
+	demo(screen);
 	////C0
 	////button jouer
 	//sf::RectangleShape butJouer(sf::Vector2f(150, 100));
@@ -89,30 +90,48 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 	//txtQuitter.setFillColor(sf::Color::Black);
 	//txtQuitter.setPosition(sf::Vector2f(500, 500));
 
+	sf::Image* normal = new sf::Image;
+	normal->create(10, 10, sf::Color(0, 0, 0, 255));
+	
+	sf::Image* clicked = new sf::Image;
+	clicked->create(10, 10, sf::Color(0, 0, 255, 255));
 
-	//while (screen[0]->isOpen()) {                 // Is the window still opened?
-	//	sf::Event event;                        // We create an event
-	//	while (screen[0]->pollEvent(event)) {       // We fill the event from the window
-	//		if (event.type == sf::Event::Closed)  // If the event is close window
-	//			screen[0]->close();                     // We close it ;)
-	//	}
+	std::string words = "t";
+	sf::Vector2f location;
+	location.x = 10;
+	location.y = 10;
+	Button b(normal,clicked, words, location);
+	sf::Texture* temp = new sf::Texture;
+	sf::Sprite* temp2 = new sf::Sprite;
+	while (screen[0]->isOpen()) 
+	{                 // Is the window still opened?
+		sf::Event event;                        // We create an event
+		while (screen[0]->pollEvent(event)) 
+		{       // We fill the event from the window
+			if (event.type == sf::Event::Closed)  // If the event is close window
+				screen[0]->close();                     // We close it ;)
+		}
 
 
 
-	//	screen[0]->clear(sf::Color::White);							// This line clear the screen
+		screen[0]->clear(sf::Color::White);							// This line clear the screen
 
-	//	/*window.draw(butJouer);
-	//	window.draw(butDemo);
-	//	window.draw(butInfo);
-	//	window.draw(butQuitter);
+		/*window.draw(butJouer);
+		window.draw(butDemo);
+		window.draw(butInfo);
+		window.draw(butQuitter);
 
-	//	window.draw(txtJouer);
-	//	window.draw(txtDemo);
-	//	window.draw(txtInfo);
-	//	window.draw(txtQuitter);*/
+		window.draw(txtJouer);
+		window.draw(txtDemo);
+		window.draw(txtInfo);
+		window.draw(txtQuitter);*/
 
-	//	screen[0]->display();                       // And we display the window
-	//}
+		screen[0]->draw(*b.getSprite());
+		temp->loadFromImage(*normal);
+		temp2->setTexture(*temp);
+		//screen[0]->draw(*temp2);
+		screen[0]->display();                       // And we display the window
+	}
 
 
 	/*for (_actuelle = 0; _actuelle < 3; ++_actuelle)
@@ -121,5 +140,14 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 
 
 	}*/
+
+}
+
+
+// Joue la démo, 0: contrôle 1: projecteur
+void gestionnaire::demo(sf::RenderWindow* screen[2])
+{
+
+
 
 }
