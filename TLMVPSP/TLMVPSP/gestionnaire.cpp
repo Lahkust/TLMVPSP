@@ -212,8 +212,8 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 
 		while (screen[0]->pollEvent(event))
 		{			// We fill the event from the window
-			cout << sf::Mouse::getPosition().x << " " << sf::Mouse::getPosition().y << endl;
-			cout << butHist.getPosition().x << " " << butHist.getPosition().y << endl;
+			// sf::Mouse::getPosition().x << " " << sf::Mouse::getPosition().y << endl;
+			// butHist.getPosition().x << " " << butHist.getPosition().y << endl;
 			switch (event.type)
 			{
 			case sf::Event::Closed:
@@ -226,7 +226,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 						(sf::Mouse::getPosition().y < (butHist.getGlobalBounds().top + butHist.getGlobalBounds().height)))
 					{
 						//Histoire
-						//cout << "allo allo" << endl;
+						//// "allo allo" << endl;
 						_deck.init("questions\\H.deck");
 						choice = true;
 
@@ -237,7 +237,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 						(sf::Mouse::getPosition().y < (butGeo.getGlobalBounds().top + butGeo.getGlobalBounds().height)))
 					{
 						//Géo
-						//cout << "allo allo" << endl;
+						//// "allo allo" << endl;
 						_deck.init("questions\\G.deck");
 						choice = true;
 					}
@@ -354,8 +354,8 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 
 		while (screen[0]->pollEvent(event))
 		{			// We fill the event from the window
-			cout << sf::Mouse::getPosition().x << " " << sf::Mouse::getPosition().y << endl;
-			cout << butUL.getPosition().x << " " << butUL.getPosition().y << endl;
+			// sf::Mouse::getPosition().x << " " << sf::Mouse::getPosition().y << endl;
+			// butUL.getPosition().x << " " << butUL.getPosition().y << endl;
 			switch (event.type)
 			{
 			case sf::Event::Closed:
@@ -372,7 +372,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							(sf::Mouse::getPosition().y < (butUL.getGlobalBounds().top + butUL.getGlobalBounds().height)))
 						{
 							//Réponse UL
-							cout << "allo allo" << endl;
+							// "allo allo" << endl;
 							butUL.setFillColor(sf::Color(95, 175, 255));
 							butUR.setFillColor(sf::Color(200, 200, 200));
 							butDL.setFillColor(sf::Color(200, 200, 200));
@@ -384,7 +384,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							(sf::Mouse::getPosition().y < (butUR.getGlobalBounds().top + butUR.getGlobalBounds().height)))
 						{
 							//Réponse UR
-							cout << "allo allo" << endl;
+							// "allo allo" << endl;
 							butUL.setFillColor(sf::Color(200, 200, 200));
 							butUR.setFillColor(sf::Color(95, 175, 255));
 							butDL.setFillColor(sf::Color(200, 200, 200));
@@ -396,7 +396,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							(sf::Mouse::getPosition().y < (butDL.getGlobalBounds().top + butDL.getGlobalBounds().height)))
 						{
 							//Réponse DL
-							cout << "allo allo" << endl;
+							// "allo allo" << endl;
 							butUL.setFillColor(sf::Color(200, 200, 200));
 							butUR.setFillColor(sf::Color(200, 200, 200));
 							butDL.setFillColor(sf::Color(95, 175, 255));
@@ -408,7 +408,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							(sf::Mouse::getPosition().y < (butDR.getGlobalBounds().top + butDR.getGlobalBounds().height)))
 						{
 							//Réponse DR
-							cout << "allo allo" << endl;
+							// "allo allo" << endl;
 							butUL.setFillColor(sf::Color(200, 200, 200));
 							butUR.setFillColor(sf::Color(200, 200, 200));
 							butDL.setFillColor(sf::Color(200, 200, 200));
@@ -421,7 +421,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 						(sf::Mouse::getPosition().y < (butMenu.getGlobalBounds().top + butMenu.getGlobalBounds().height)))
 					{
 						//Retour menu
-						cout << "allo allo" << endl;
+						// "allo allo" << endl;
 						choice = true;
 					}
 				if ((sf::Mouse::getPosition().x > butSuivant.getGlobalBounds().left) &&
@@ -430,7 +430,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 						(sf::Mouse::getPosition().y < (butSuivant.getGlobalBounds().top + butSuivant.getGlobalBounds().height)))
 					{
 						//Valider / Suivant
-						cout << "allo allo" << endl;
+						// "allo allo" << endl;
 
 						//Vérifier si un choix est fait
 						if (!((butUL.getFillColor() == sf::Color(200, 200, 200)) &&
@@ -487,14 +487,14 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 								(butDR.getFillColor() == sf::Color(209, 23, 23)))
 							{
 								//raté
-								cout << "OH NOES";
+								// "OH NOES";
 								sound.setBuffer(defaite);
 								sound.play();
 							}
 							else
 							{
 								//gagné
-								cout << "YEAH";
+								// "YEAH";
 								sound.setBuffer(victoire);
 								sound.play();
 							}

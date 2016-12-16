@@ -26,7 +26,7 @@ int saisirInt(string demande)
 	
 	do{
 		flag = false;
-		cout << demande << endl << "(Nombre entier)" << endl;
+		// demande << endl << "(Nombre entier)" << endl;
 		viderBuffer();
 		cin >> input;
 		//Vérifie que le premier caractère est un - ou un chiffre:
@@ -49,7 +49,7 @@ int saisirIntPositif(string demande )
 	bool flag = true;
 	do{do{
 		flag = false;
-		cout << demande << endl << "(Nombre entier positif)" << endl;
+		// demande << endl << "(Nombre entier positif)" << endl;
 		viderBuffer();
 		cin >> input;
 		//Pour chaque caractère, vérifie que c'est un chiffre:
@@ -70,7 +70,7 @@ float saisirFloat(string demande )
 	do{
 		nbPoints = 0;
 		flag = false;
-		cout << demande << endl << "(Nombre reel)" << endl;
+		// demande << endl << "(Nombre reel)" << endl;
 		viderBuffer();
 		cin >> input;
 		//Vérifie que le premier caractère est un - ou un chiffre:
@@ -96,7 +96,7 @@ float saisirFloatPositif(string demande )
 	do{do{
 		nbPoints = 0;
 		flag = false;
-		cout << demande << endl << "(Nombre reel positif)" << endl;
+		// demande << endl << "(Nombre reel positif)" << endl;
 		viderBuffer();
 		cin >> input;
 		//Pour chaque caractère, vérifie que c'est un chiffre ou UN point:
@@ -115,7 +115,7 @@ char saisirCharValide(string demande )
 {
 	string valide = "";
 	do{
-		cout << demande << endl;
+		// demande << endl;
 		viderBuffer();
 		cin >> valide;
 	} while (valide.length() != 1);
@@ -126,7 +126,7 @@ string saisirStringNonVide(string demande )
 {
 	string nonVide ;
 	do{
-		cout << demande << endl;
+		// demande << endl;
 		viderBuffer();
 		cin >> nonVide;
 	} while (nonVide.empty());
@@ -139,7 +139,7 @@ char questionOuiNon(string demande )
 	do
 	{
 		//Afficher demande
-		cout << demande << " (o/n)" << endl;
+		// demande << " (o/n)" << endl;
 		//Entrer réponse
 		viderBuffer();
 		cin >> continuer;
@@ -162,7 +162,7 @@ void viderBuffer()
 //vide le buffer et fait un ignore d’un buffer vide, donc fait une pause
 void pause(string demande)
 { 
-	cout << demande << endl;
+	// demande << endl;
 	viderBuffer();
 	cin.ignore();
 }
@@ -170,7 +170,7 @@ void pause(string demande)
 void enter(string demande)
 {
 	do{
-		cout << demande << endl;
+		// demande << endl;
 		viderBuffer();
 	} while (cin.get() != '\n');
 }
@@ -180,7 +180,7 @@ void ouvrirFichier(ifstream &fichier, string cheminFichier)
   fichier.open(cheminFichier);
   if (fichier.fail())
   {
-    cout << "Fichier introuvable";
+    // "Fichier introuvable";
   }
 }
 

@@ -121,12 +121,12 @@ void deck::init(std::string s)
 		}
 		else //Si le fichier est vide
 		{
-			std::cout << "Le fichier " << s << " est vide!" << std::endl;
+			// "Le fichier " << s << " est vide!" << std::endl;
 		}
 	}
 	else //Si le fichier n'existe pas
 	{
-		std::cout << "Le fichier " << s << " n'existe pas!" << std::endl;
+		// "Le fichier " << s << " n'existe pas!" << std::endl;
 	}
 
 }
