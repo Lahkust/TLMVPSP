@@ -39,8 +39,6 @@ void gestionnaire::init()
 
 }
 
-
-
 // lance une partie
 void gestionnaire::play(sf::RenderWindow* screen[2])
 {
@@ -145,7 +143,6 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 
 }
 
-
 // Joue la démo, 0: contrôle 1: projecteur
 void gestionnaire::demo(sf::RenderWindow* screen[2])
 {
@@ -227,7 +224,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		screen[0]->clear(sf::Color::White);							// This line clear the screen
 		screen[1]->clear(sf::Color::White);
 
-
 		screen[0]->draw(butHist);
 		screen[0]->draw(butGeo);
 		screen[0]->draw(txtHist);
@@ -238,13 +234,11 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		screen[1]->draw(txtHist);
 		screen[1]->draw(txtGeo);
 
-
 		screen[0]->display();							// And we display the window
 		screen[1]->display();
 
 
 	}
-
 
 	//////// Jeu
 
@@ -285,7 +279,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	butSuivant.setFillColor(sf::Color(200, 200, 200));
 	butSuivant.setPosition(sf::Vector2f(410, 500));
 
-
 	// texte UL
 	sf::Text txtUL("UL", font, 40);
 	txtUL.setFillColor(sf::Color::Black);
@@ -317,9 +310,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	sf::Text txtSuivant("Valider", font, 25);
 	txtSuivant.setFillColor(sf::Color::Black);
 	txtSuivant.setPosition(sf::Vector2f(410, 500));
-
-
-
 
 	_deck.melanger();
 	_question = _deck.tirer();
@@ -400,10 +390,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							butDL.setFillColor(sf::Color(200, 200, 200));
 							butDR.setFillColor(sf::Color(95, 175, 255));
 				}
-
-
-
-				
 					}
 				if ((sf::Mouse::getPosition().x > butMenu.getGlobalBounds().left) &&
 					(sf::Mouse::getPosition().x < (butMenu.getGlobalBounds().left + butMenu.getGlobalBounds().width)))
@@ -463,16 +449,22 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 
 
 
-
+							if ((butUL.getFillColor() == sf::Color(209, 23, 23)) ||
+								(butUR.getFillColor() == sf::Color(209, 23, 23)) ||
+								(butDL.getFillColor() == sf::Color(209, 23, 23)) ||
+								(butDR.getFillColor() == sf::Color(209, 23, 23)) )
+							{
+								//raté
+								cout << "OH NOES";
+							}
+							else
+							{
+								//gagné
+								cout << "YEAH";
+							}
 						}
-
-
 						suivant = !suivant;
-
 					}
-
-
-
 				break;
 			}
 		}
@@ -486,10 +478,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		else
 		{
 			txtSuivant.setString("Valider");
-
-
 		}
-
 
 		txtUL.setString(_reponses[0]);
 		txtUR.setString(_reponses[1]);
@@ -497,7 +486,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		txtDR.setString(_reponses[3]);
 
 		txtQ.setString(_question.getQuestion());
-
 
 		screen[0]->clear(sf::Color::White);							// This line clear the screen
 		screen[1]->clear(sf::Color::White);
@@ -509,8 +497,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		screen[0]->draw(quest);
 		screen[0]->draw(butMenu);
 		screen[0]->draw(butSuivant);
-
-
 
 		screen[0]->draw(txtUL);
 		screen[0]->draw(txtUR);
@@ -531,8 +517,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		screen[1]->draw(txtDL);
 		screen[1]->draw(txtDR);
 		screen[1]->draw(txtQ);
-
-
 
 		screen[0]->display();							// And we display the window
 		screen[1]->display();
