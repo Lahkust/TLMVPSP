@@ -1,25 +1,5 @@
-#include <string>
-#include <iostream>
-#include <SFML\Graphics.hpp>
-#include <SFML\Graphics\Sprite.hpp>
-
-class Button {
-public:
-	Button(sf::Image* normal, sf::Image* clicked, std::string, sf::Vector2f location);
-	void checkClick(sf::Vector2f);
-	void setState(bool);
-	void setText(std::string);
-	bool getVar();
-	sf::Sprite* getSprite();
-	sf::String * getText();
-private:
-	sf::Image n2;
-	sf::Sprite normal;
-	sf::Sprite clicked;
-	sf::Sprite* currentSpr;
-	sf::String String;
-	bool current;
-};
+#pragma once
+#include "button.h"
 
 Button::Button(sf::Image* normal, sf::Image* clicked, std::string words, sf::Vector2f location) {
 
@@ -36,6 +16,8 @@ Button::Button(sf::Image* normal, sf::Image* clicked, std::string words, sf::Vec
 	//String.setPosition(location.x + 3, location.y + 3);
 	//String.SetSize(14);
 }
+
+
 void Button::checkClick(sf::Vector2f mousePos) {
 	if (mousePos.x>currentSpr->getPosition().x && mousePos.x<(currentSpr->getPosition().x + currentSpr->getScale().x)) {
 		if (mousePos.y>currentSpr->getPosition().y && mousePos.y<(currentSpr->getPosition().y + currentSpr->getScale().y)) {
@@ -43,6 +25,7 @@ void Button::checkClick(sf::Vector2f mousePos) {
 		}
 	}
 }
+
 void Button::setState(bool which) {
 	current = which;
 	if (current) {
@@ -51,12 +34,15 @@ void Button::setState(bool which) {
 	}
 	currentSpr = &normal;
 }
+
 void Button::setText(std::string words) {
 	String = words;
 }
+
 bool Button::getVar() {
 	return current;
 }
+
 sf::Sprite* Button::getSprite() {
 	return currentSpr;
 }
