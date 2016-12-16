@@ -147,6 +147,21 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 void gestionnaire::demo(sf::RenderWindow* screen[2])
 {
 	setlocale(LC_ALL, "fr-FR");
+	sf::SoundBuffer victoire;
+	sf::SoundBuffer defaite;
+	sf::Sound sound;
+
+
+	if (!defaite.loadFromFile("sound.wav"))
+	{
+		//erreur!
+	}
+
+	if (!victoire.loadFromFile("sound.wav"))
+	{
+		//erreur!
+	}
+
 
 	///////Décision de deck
 
@@ -456,11 +471,15 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							{
 								//raté
 								cout << "OH NOES";
+								sound.setBuffer(defaite);
+								sound.play();
 							}
 							else
 							{
 								//gagné
 								cout << "YEAH";
+								sound.setBuffer(victoire);
+								sound.play();
 							}
 						}
 						suivant = !suivant;

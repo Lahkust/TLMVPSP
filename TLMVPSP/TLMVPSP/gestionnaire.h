@@ -5,6 +5,8 @@
 #include "deck.h"
 #include "manche.h"
 #include "button.h"
+#include <SFML/Audio.hpp>
+
 
 class gestionnaire
 {
