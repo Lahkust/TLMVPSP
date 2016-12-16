@@ -45,50 +45,7 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 
 	setlocale(LC_ALL, "fr-FR");
 	demo(screen);
-	////C0
-	////button jouer
-	//sf::RectangleShape butHist(sf::Vector2f(150, 100));
-	//butHist.setFillColor(sf::Color(50, 125, 200));
-	//butHist.setPosition(sf::Vector2f(500, 50));
 
-	////button démo
-	//sf::RectangleShape butGeo(sf::Vector2f(150, 100));
-	//butGeo.setFillColor(sf::Color(50, 125, 200));
-	//butGeo.setPosition(sf::Vector2f(500, 200));
-
-	////button info
-	//sf::RectangleShape butDL(sf::Vector2f(150, 100));
-	//butDL.setFillColor(sf::Color(50, 125, 200));
-	//butDL.setPosition(sf::Vector2f(500, 350));
-
-	////button quitter
-	//sf::RectangleShape butDR(sf::Vector2f(150, 100));
-	//butDR.setFillColor(sf::Color(50, 125, 200));
-	//butDR.setPosition(sf::Vector2f(500, 500));
-
-	////load font
-	//sf::Font font;
-	//if (!font.loadFromFile("arial.ttf"))
-	//{
-	//	// error...
-	//}
-
-	//// texte jouer
-	//sf::Text txtHist("Jouer", font, 50);
-	//txtHist.setFillColor(sf::Color::Black);
-	//txtHist.setPosition(sf::Vector2f(500, 50));
-	//// texte démo
-	//sf::Text txtGeo("Démo", font, 50);
-	//txtGeo.setFillColor(sf::Color::Black);
-	//txtGeo.setPosition(sf::Vector2f(500, 200));
-	//// texte info
-	//sf::Text txtDL("Info", font, 50);
-	//txtDL.setFillColor(sf::Color::Black);
-	//txtDL.setPosition(sf::Vector2f(500, 350));
-	//// texte quitter
-	//sf::Text txtDR("Quitter", font, 50);
-	//txtDR.setFillColor(sf::Color::Black);
-	//txtDR.setPosition(sf::Vector2f(500, 500));
 
 	sf::Image* normal = new sf::Image;
 	normal->create(10, 10, sf::Color(0, 0, 0, 255));
@@ -116,16 +73,6 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 
 		screen[0]->clear(sf::Color::White);							// This line clear the screen
 
-		/*window.draw(butHist);
-		window.draw(butGeo);
-		window.draw(butDL);
-		window.draw(butDR);
-
-		window.draw(txtHist);
-		window.draw(txtGeo);
-		window.draw(txtDL);
-		window.draw(txtDR);*/
-
 		screen[0]->draw(*b.getSprite());
 		temp->loadFromImage(*normal);
 		temp2->setTexture(*temp);
@@ -134,12 +81,6 @@ void gestionnaire::play(sf::RenderWindow* screen[2])
 	}
 
 
-	/*for (_actuelle = 0; _actuelle < 3; ++_actuelle)
-	{
-		_manche[_actuelle] = manche(_actuelle);
-
-
-	}*/
 
 }
 
@@ -149,20 +90,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	setlocale(LC_ALL, "fr-FR");
 	
 	sf::SoundBuffer buffer;
-	//sf::SoundBuffer victoire;
-	//sf::SoundBuffer defaite;
 	sf::Sound sound;
-
-
-//	if (!defaite.loadFromFile("fail.wav"))
-//	{
-//		//erreur!
-//	}
-//
-//	if (!victoire.loadFromFile("success.wav"))
-//	{
-//		//erreur!
-//	}
 
 
 	///////Décision de deck
@@ -423,10 +351,17 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 						(sf::Mouse::getPosition().y < (butSuivant.getGlobalBounds().top + butSuivant.getGlobalBounds().height)))
 					{
 						//Valider / Suivant
-						cout << "allo allo" << endl;
 
-						if (suivant)
+						cout << "allo allo" << endl;
+						//Vérifier si un choix est fait
+						if(!((butUL.getFillColor() == sf::Color(200, 200, 200)) &&
+							(butUR.getFillColor() == sf::Color(200, 200, 200)) &&
+							(butDL.getFillColor() == sf::Color(200, 200, 200)) &&
+							(butDR.getFillColor() == sf::Color(200, 200, 200))
+							))
+						if (suivant) // switcher selon le bouton
 						{
+							//aller à la question suivante
 							_question = _deck.tirer();
 
 							butUL.setFillColor(sf::Color(200, 200, 200));
@@ -435,10 +370,15 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							butDR.setFillColor(sf::Color(200, 200, 200));
 
 							_question.getCarre(_reponses);
+
+							suivant = !suivant;
 						}
 						else
 						{
 
+							//valider la bonne/mauvaise réponse
+
+							//Colorer la bonne réponse en vert
 							if (_question.checkReponse(_reponses[0]))
 								butUL.setFillColor(sf::Color(58, 160, 20));
 							if (_question.checkReponse(_reponses[1]))
@@ -448,58 +388,57 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							if (_question.checkReponse(_reponses[3]))
 								butDR.setFillColor(sf::Color(58, 160, 20));
 
+
+							//colorer si besoin la mauvaise réponse sélectionnée en rouge
 							if (butUL.getFillColor() == sf::Color(95, 175, 255))
 								if (!_question.checkReponse(_reponses[0]))
 									butUL.setFillColor(sf::Color(209, 23, 23));
-
 							if (butUR.getFillColor() == sf::Color(95, 175, 255))
 								if (!_question.checkReponse(_reponses[1]))
 									butUR.setFillColor(sf::Color(209, 23, 23));
-
 							if (butDL.getFillColor() == sf::Color(95, 175, 255))
 								if (!_question.checkReponse(_reponses[2]))
 									butDL.setFillColor(sf::Color(209, 23, 23));
-
 							if (butDR.getFillColor() == sf::Color(95, 175, 255))
 								if (!_question.checkReponse(_reponses[3]))
 									butDR.setFillColor(sf::Color(209, 23, 23));
 
 
-
+							//Jouer le son adéquat; si une réponse est rouge, c'est raté
 							if ((butUL.getFillColor() == sf::Color(209, 23, 23)) ||
 								(butUR.getFillColor() == sf::Color(209, 23, 23)) ||
 								(butDL.getFillColor() == sf::Color(209, 23, 23)) ||
 								(butDR.getFillColor() == sf::Color(209, 23, 23)) )
-							{
-								//raté
-								cout << "OH NOES";
-								//sound.setBuffer(defaite);
+								{
+									//raté
+									cout << "OH NOES";
+									//sound.setBuffer(defaite);
 
-									if (!buffer.loadFromFile("fail.wav"))
-									{
-										//erreur!
-									}
+										if (!buffer.loadFromFile("fail.wav"))
+										{
+											//erreur!
+										}
 
-								sound.setBuffer(buffer);
-								sound.play();
-							}
-							else
-							{
-								//gagné
-								cout << "YEAH";
-								//sound.setBuffer(victoire);
-								
-									if (!buffer.loadFromFile("success.wav"))
-									{
-										//erreur!
-									}
 									sound.setBuffer(buffer);
-								sound.play();
-							}
+									sound.play();
+								}
+								else
+								{
+									//gagné
+									cout << "YEAH";
+									//sound.setBuffer(victoire);
+								
+										if (!buffer.loadFromFile("success.wav"))
+										{
+											//erreur!
+										}
+										sound.setBuffer(buffer);
+									sound.play();
+								}
 
+							suivant = !suivant;
 
 						}
-						suivant = !suivant;
 					}
 				break;
 			}
