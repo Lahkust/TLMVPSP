@@ -348,53 +348,62 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 				screen[0]->close();
 				break;
 			case sf::Event::MouseButtonPressed:
-				if ((sf::Mouse::getPosition().x > butUL.getGlobalBounds().left) &&
-					(sf::Mouse::getPosition().x < (butUL.getGlobalBounds().left + butUL.getGlobalBounds().width)))
-					if ((sf::Mouse::getPosition().y > butUL.getGlobalBounds().top) &&
-						(sf::Mouse::getPosition().y < (butUL.getGlobalBounds().top + butUL.getGlobalBounds().height)))
-					{
-						//Réponse UL
-						cout << "allo allo" << endl;
-						butUL.setFillColor(sf::Color(95, 175, 255));
-						butUR.setFillColor(sf::Color(200, 200, 200));
-						butDL.setFillColor(sf::Color(200, 200, 200));
-						butDR.setFillColor(sf::Color(200, 200, 200));
-					}
-				if ((sf::Mouse::getPosition().x > butUR.getGlobalBounds().left) &&
-					(sf::Mouse::getPosition().x < (butUR.getGlobalBounds().left + butUR.getGlobalBounds().width)))
-					if ((sf::Mouse::getPosition().y > butUR.getGlobalBounds().top) &&
-						(sf::Mouse::getPosition().y < (butUR.getGlobalBounds().top + butUR.getGlobalBounds().height)))
-					{
-						//Réponse UR
-						cout << "allo allo" << endl;
-						butUL.setFillColor(sf::Color(200, 200, 200));
-						butUR.setFillColor(sf::Color(95, 175, 255));
-						butDL.setFillColor(sf::Color(200, 200, 200));
-						butDR.setFillColor(sf::Color(200, 200, 200));
-					}
-				if ((sf::Mouse::getPosition().x > butDL.getGlobalBounds().left) &&
-					(sf::Mouse::getPosition().x < (butDL.getGlobalBounds().left + butDL.getGlobalBounds().width)))
-					if ((sf::Mouse::getPosition().y > butDL.getGlobalBounds().top) &&
-						(sf::Mouse::getPosition().y < (butDL.getGlobalBounds().top + butDL.getGlobalBounds().height)))
-					{
-						//Réponse DL
-						cout << "allo allo" << endl;
-						butUL.setFillColor(sf::Color(200, 200, 200));
-						butUR.setFillColor(sf::Color(200, 200, 200));
-						butDL.setFillColor(sf::Color(95, 175, 255));
-						butDR.setFillColor(sf::Color(200, 200, 200));
-					}
-				if ((sf::Mouse::getPosition().x > butDR.getGlobalBounds().left) &&
-					(sf::Mouse::getPosition().x < (butDR.getGlobalBounds().left + butDR.getGlobalBounds().width)))
-					if ((sf::Mouse::getPosition().y > butDR.getGlobalBounds().top) &&
-						(sf::Mouse::getPosition().y < (butDR.getGlobalBounds().top + butDR.getGlobalBounds().height)))
-					{
-						//Réponse DR
-						cout << "allo allo" << endl;
-						butUL.setFillColor(sf::Color(200, 200, 200));
-						butUR.setFillColor(sf::Color(200, 200, 200));
-						butDL.setFillColor(sf::Color(200, 200, 200));
-						butDR.setFillColor(sf::Color(95, 175, 255));
+
+				if (!suivant)
+				{
+
+					if ((sf::Mouse::getPosition().x > butUL.getGlobalBounds().left) &&
+						(sf::Mouse::getPosition().x < (butUL.getGlobalBounds().left + butUL.getGlobalBounds().width)))
+						if ((sf::Mouse::getPosition().y > butUL.getGlobalBounds().top) &&
+							(sf::Mouse::getPosition().y < (butUL.getGlobalBounds().top + butUL.getGlobalBounds().height)))
+						{
+							//Réponse UL
+							cout << "allo allo" << endl;
+							butUL.setFillColor(sf::Color(95, 175, 255));
+							butUR.setFillColor(sf::Color(200, 200, 200));
+							butDL.setFillColor(sf::Color(200, 200, 200));
+							butDR.setFillColor(sf::Color(200, 200, 200));
+						}
+					if ((sf::Mouse::getPosition().x > butUR.getGlobalBounds().left) &&
+						(sf::Mouse::getPosition().x < (butUR.getGlobalBounds().left + butUR.getGlobalBounds().width)))
+						if ((sf::Mouse::getPosition().y > butUR.getGlobalBounds().top) &&
+							(sf::Mouse::getPosition().y < (butUR.getGlobalBounds().top + butUR.getGlobalBounds().height)))
+						{
+							//Réponse UR
+							cout << "allo allo" << endl;
+							butUL.setFillColor(sf::Color(200, 200, 200));
+							butUR.setFillColor(sf::Color(95, 175, 255));
+							butDL.setFillColor(sf::Color(200, 200, 200));
+							butDR.setFillColor(sf::Color(200, 200, 200));
+						}
+					if ((sf::Mouse::getPosition().x > butDL.getGlobalBounds().left) &&
+						(sf::Mouse::getPosition().x < (butDL.getGlobalBounds().left + butDL.getGlobalBounds().width)))
+						if ((sf::Mouse::getPosition().y > butDL.getGlobalBounds().top) &&
+							(sf::Mouse::getPosition().y < (butDL.getGlobalBounds().top + butDL.getGlobalBounds().height)))
+						{
+							//Réponse DL
+							cout << "allo allo" << endl;
+							butUL.setFillColor(sf::Color(200, 200, 200));
+							butUR.setFillColor(sf::Color(200, 200, 200));
+							butDL.setFillColor(sf::Color(95, 175, 255));
+							butDR.setFillColor(sf::Color(200, 200, 200));
+						}
+					if ((sf::Mouse::getPosition().x > butDR.getGlobalBounds().left) &&
+						(sf::Mouse::getPosition().x < (butDR.getGlobalBounds().left + butDR.getGlobalBounds().width)))
+						if ((sf::Mouse::getPosition().y > butDR.getGlobalBounds().top) &&
+							(sf::Mouse::getPosition().y < (butDR.getGlobalBounds().top + butDR.getGlobalBounds().height)))
+						{
+							//Réponse DR
+							cout << "allo allo" << endl;
+							butUL.setFillColor(sf::Color(200, 200, 200));
+							butUR.setFillColor(sf::Color(200, 200, 200));
+							butDL.setFillColor(sf::Color(200, 200, 200));
+							butDR.setFillColor(sf::Color(95, 175, 255));
+				}
+
+
+
+				
 					}
 				if ((sf::Mouse::getPosition().x > butMenu.getGlobalBounds().left) &&
 					(sf::Mouse::getPosition().x < (butMenu.getGlobalBounds().left + butMenu.getGlobalBounds().width)))
@@ -417,7 +426,44 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 						{
 							_question = _deck.tirer();
 
+							butUL.setFillColor(sf::Color(200, 200, 200));
+							butUR.setFillColor(sf::Color(200, 200, 200));
+							butDL.setFillColor(sf::Color(200, 200, 200));
+							butDR.setFillColor(sf::Color(200, 200, 200));
+
 							_question.getCarre(_reponses);
+						}
+						else
+						{
+
+							if (_question.checkReponse(_reponses[0]))
+								butUL.setFillColor(sf::Color(58, 160, 20));
+							if (_question.checkReponse(_reponses[1]))
+								butUR.setFillColor(sf::Color(58, 160, 20));
+							if (_question.checkReponse(_reponses[2]))
+								butDL.setFillColor(sf::Color(58, 160, 20));
+							if (_question.checkReponse(_reponses[3]))
+								butDR.setFillColor(sf::Color(58, 160, 20));
+
+							if (butUL.getFillColor() == sf::Color(95, 175, 255))
+								if (!_question.checkReponse(_reponses[0]))
+									butUL.setFillColor(sf::Color(209, 23, 23));
+
+							if (butUR.getFillColor() == sf::Color(95, 175, 255))
+								if (!_question.checkReponse(_reponses[1]))
+									butUR.setFillColor(sf::Color(209, 23, 23));
+
+							if (butDL.getFillColor() == sf::Color(95, 175, 255))
+								if (!_question.checkReponse(_reponses[2]))
+									butDL.setFillColor(sf::Color(209, 23, 23));
+
+							if (butDR.getFillColor() == sf::Color(95, 175, 255))
+								if (!_question.checkReponse(_reponses[3]))
+									butDR.setFillColor(sf::Color(209, 23, 23));
+
+
+
+
 						}
 
 

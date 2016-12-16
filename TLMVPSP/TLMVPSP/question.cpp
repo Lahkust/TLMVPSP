@@ -72,12 +72,14 @@ void question::getCarre(std::string s[4])
 // Vérifie si le std::string donné en paramètre est la bonne réponse
 bool question::checkReponse(std::string s)
 {
-	return s == _question;
+	setlocale(LC_ALL, "fr-FR");
+	return ((_reponses[0].compare(s)) == 0);
 }
 
 
 // Retourne la question,au sens de la phrase qui se termine par un "?"
 std::string question::getQuestion()
 {
+	setlocale(LC_ALL, "fr-FR");
 	return _question;
 }
