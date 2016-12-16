@@ -1,3 +1,12 @@
+/* En-tête du programme
+====================
+Programme :			gestionnaire.cpp
+Auteurs:			Christopher Brown, Guillaume Bergs
+Date de dernière modification :  2016/12/15
+Description :		gère le déroulement des parties
+To Do :				coder une partie complète
+*/
+
 #include "gestionnaire.h"
 
 
