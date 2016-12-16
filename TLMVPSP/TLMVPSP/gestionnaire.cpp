@@ -152,12 +152,12 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	sf::Sound sound;
 
 
-	if (!defaite.loadFromFile("sound.wav"))
+	if (!defaite.loadFromFile("fail.wav"))
 	{
 		//erreur!
 	}
 
-	if (!victoire.loadFromFile("sound.wav"))
+	if (!victoire.loadFromFile("success.wav"))
 	{
 		//erreur!
 	}
