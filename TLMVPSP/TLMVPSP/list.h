@@ -1,3 +1,13 @@
+/* En-tête du programme
+====================
+Programme :	list.h
+Auteur:	Christopher Brown
+Date dernière modification :  2016/12/15
+Description :	Class list selon la structure d'une list avec des méthodes comme insert et erase. 
+				Elle contient la class iterator qui permet de se situer dans la liste.
+To Do :
+*/
+
 #pragma once
 #include <assert.h>
 

@@ -1,6 +1,13 @@
+/* En-tête du programme
+====================
+Programme :	joueur.cpp
+Auteur:	Christopher Brown
+Date dernière modification :  2016/12/15
+Description :	Méthode de la classe joueur.
+To Do :
+*/
+
 #include "joueur.h"
-
-
 
 joueur::joueur()
 {

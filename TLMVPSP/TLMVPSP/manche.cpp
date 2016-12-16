@@ -1,6 +1,13 @@
+/* En-tête du programme
+====================
+Programme :	manche.cpp
+Auteur:	Christopher Brown
+Date dernière modification :  2016/12/15
+Description :	Méthode de la classe manche.
+To Do :
+*/
+
 #include "manche.h"
-
-
 
 manche::manche()
 {
@@ -13,7 +20,7 @@ manche::~manche()
 	_joueur.clear();
 }
 
-
+// Manche à initialiser 
 manche::manche(int m)
 {
 	_it = _joueur.begin();
@@ -61,7 +68,7 @@ manche::manche(int m)
 	}
 }
 
-
+// Manche à initialiser avec une liste de joueurs
 manche::manche(int m, list<joueur> j)
 {
 
@@ -109,14 +116,20 @@ double manche::getRatioGroupDuo()
 	return moyenne / i;
 }
 
-
+// Garder les meilleurs joueurs pour la prochaine ronde
 list<joueur> manche::bonsJoueurs(int i)
 {
+	_it = _joueur.begin();
+	for (_it = _joueur.begin(); _it != _joueur.end(); _it++)
+	{
+		_it.operator*().getPoints();
+	}
+
 	return _joueur;
 }
 
-
+// Question qui va être poser au joueur
 void manche::poserQuestion(int i, question q)
 {
-
+	
 }

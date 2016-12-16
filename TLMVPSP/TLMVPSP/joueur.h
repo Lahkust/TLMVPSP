@@ -1,3 +1,12 @@
+/* En-tête du programme
+====================
+Programme :	joueur.h
+Auteur:	Christopher Brown
+Date dernière modification :  2016/12/15
+Description :	Classe joueur qui permet d'avoir des informations sur le joueur comme son nom, le nombre de bonnes réponses...
+To Do :
+*/
+
 #pragma once
 #include <string>
 
