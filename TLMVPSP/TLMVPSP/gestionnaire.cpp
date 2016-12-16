@@ -248,6 +248,8 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 
 	//////// Jeu
 
+	bool suivant = false;
+
 	//button UL
 	sf::RectangleShape butUL(sf::Vector2f(380, 150));
 	butUL.setFillColor(sf::Color(200, 200, 200));
@@ -399,14 +401,57 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 					if ((sf::Mouse::getPosition().y > butMenu.getGlobalBounds().top) &&
 						(sf::Mouse::getPosition().y < (butMenu.getGlobalBounds().top + butMenu.getGlobalBounds().height)))
 					{
-						//Réponse DR
+						//Retour menu
 						cout << "allo allo" << endl;
 						choice = true;
 					}
+				if ((sf::Mouse::getPosition().x > butSuivant.getGlobalBounds().left) &&
+					(sf::Mouse::getPosition().x < (butSuivant.getGlobalBounds().left + butSuivant.getGlobalBounds().width)))
+					if ((sf::Mouse::getPosition().y > butSuivant.getGlobalBounds().top) &&
+						(sf::Mouse::getPosition().y < (butSuivant.getGlobalBounds().top + butSuivant.getGlobalBounds().height)))
+					{
+						//Valider / Suivant
+						cout << "allo allo" << endl;
+
+						if (suivant)
+						{
+							_question = _deck.tirer();
+
+							_question.getCarre(_reponses);
+						}
+
+
+						suivant = !suivant;
+
+					}
+
+
 
 				break;
 			}
 		}
+
+
+		if (suivant)
+		{
+			txtSuivant.setString("Suivant");
+
+		}
+		else
+		{
+			txtSuivant.setString("Valider");
+
+
+		}
+
+
+		txtUL.setString(_reponses[0]);
+		txtUR.setString(_reponses[1]);
+		txtDL.setString(_reponses[2]);
+		txtDR.setString(_reponses[3]);
+
+		txtQ.setString(_question.getQuestion());
+
 
 		screen[0]->clear(sf::Color::White);							// This line clear the screen
 		screen[1]->clear(sf::Color::White);
