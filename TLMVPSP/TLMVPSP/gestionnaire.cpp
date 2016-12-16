@@ -154,16 +154,18 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	deck _deck;
 	question _question;
 	bool choice = false;
+	string _reponses[4];
+
 
 	//button histoire
-	sf::RectangleShape butHist(sf::Vector2f(250, 750));
+	sf::RectangleShape butHist(sf::Vector2f(800, 300));
 	butHist.setFillColor(sf::Color(255, 150, 50));
-	butHist.setPosition(sf::Vector2f(0, 25));
+	butHist.setPosition(sf::Vector2f(0, 0));
 
 	//button géo
-	sf::RectangleShape butGeo(sf::Vector2f(250, 750));
+	sf::RectangleShape butGeo(sf::Vector2f(800, 300));
 	butGeo.setFillColor(sf::Color(255, 50, 50));
-	butGeo.setPosition(sf::Vector2f(0, 325));
+	butGeo.setPosition(sf::Vector2f(0, 300));
 
 	//load font
 	sf::Font font;
@@ -173,13 +175,13 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	}
 
 	// texte histoire
-	sf::Text txtHist("Histoire", font, 50);
+	sf::Text txtHist("Histoire", font, 80);
 	txtHist.setFillColor(sf::Color::Black);
-	txtHist.setPosition(sf::Vector2f(200, 125));
+	txtHist.setPosition(sf::Vector2f(225, 100));
 	// texte géo
-	sf::Text txtGeo("Géographie", font, 50);
+	sf::Text txtGeo("Géographie", font, 80);
 	txtGeo.setFillColor(sf::Color::Black);
-	txtGeo.setPosition(sf::Vector2f(200, 425));
+	txtGeo.setPosition(sf::Vector2f(175, 400));
 
 	while (screen[0]->isOpen() && (!choice)) {						// Is the window still opened?
 		sf::Event event;								// We create an event
@@ -263,26 +265,51 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	butDR.setFillColor(sf::Color(200, 200, 200));
 	butDR.setPosition(sf::Vector2f(410, 230));
 
+	//Question
+	sf::RectangleShape quest(sf::Vector2f(800, 50));
+	quest.setFillColor(sf::Color(200, 200, 200));
+	quest.setPosition(sf::Vector2f(0, 0));
+
+	//Menu
+	sf::RectangleShape menu(sf::Vector2f(380, 50));
+	menu.setFillColor(sf::Color(200, 200, 200));
+	menu.setPosition(sf::Vector2f(10, 500));
+
+
 
 	// texte UL
-	sf::Text txtUL("UL", font, 50);
+	sf::Text txtUL("UL", font, 40);
 	txtUL.setFillColor(sf::Color::Black);
-	txtUL.setPosition(sf::Vector2f(10, 10));
+	txtUL.setPosition(sf::Vector2f(10, 70));
 	// texte UR
-	sf::Text txtUR("UR", font, 50);
+	sf::Text txtUR("UR", font, 40);
 	txtUR.setFillColor(sf::Color::Black);
-	txtUR.setPosition(sf::Vector2f(410, 10));
+	txtUR.setPosition(sf::Vector2f(410, 70));
 	// texte DL
-	sf::Text txtDL("DL", font, 50);
+	sf::Text txtDL("DL", font, 40);
 	txtDL.setFillColor(sf::Color::Black);
-	txtDL.setPosition(sf::Vector2f(10, 160));
+	txtDL.setPosition(sf::Vector2f(10, 230));
 	// texte DR
-	sf::Text txtDR("DR", font, 50);
+	sf::Text txtDR("DR", font, 40);
 	txtDR.setFillColor(sf::Color::Black);
-	txtDR.setPosition(sf::Vector2f(410, 160));
+	txtDR.setPosition(sf::Vector2f(410, 230));
+
+	// texte question
+	sf::Text txtQ("Q", font, 25);
+	txtQ.setFillColor(sf::Color::Black);
+	txtQ.setPosition(sf::Vector2f(0, 0));
+
 
 	_deck.melanger();
 	_question = _deck.tirer();
+
+	_question.getCarre(_reponses);
+	txtUL.setString(_reponses[0]);
+	txtUR.setString(_reponses[1]);
+	txtDL.setString(_reponses[2]);
+	txtDR.setString(_reponses[3]);
+
+	txtQ.setString(_question.getQuestion());
 
 	choice = false;
 
@@ -343,21 +370,27 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 		screen[0]->draw(butUR);
 		screen[0]->draw(butDL);
 		screen[0]->draw(butDR);
+		screen[0]->draw(quest);
+
 
 		screen[0]->draw(txtUL);
 		screen[0]->draw(txtUR);
 		screen[0]->draw(txtDL);
 		screen[0]->draw(txtDR);
+		screen[0]->draw(txtQ);
 
 		screen[1]->draw(butUL);
 		screen[1]->draw(butUR);
 		screen[1]->draw(butDL);
 		screen[1]->draw(butDR);
+		screen[1]->draw(quest);
 
 		screen[1]->draw(txtUL);
 		screen[1]->draw(txtUR);
 		screen[1]->draw(txtDL);
 		screen[1]->draw(txtDR);
+		screen[1]->draw(txtQ);
+
 
 
 		screen[0]->display();							// And we display the window
