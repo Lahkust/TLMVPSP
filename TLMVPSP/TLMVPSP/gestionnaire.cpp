@@ -432,7 +432,13 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 						//Valider / Suivant
 						cout << "allo allo" << endl;
 
-						if (suivant)
+						//Vérifier si un choix est fait
+						if (!((butUL.getFillColor() == sf::Color(200, 200, 200)) &&
+							(butUR.getFillColor() == sf::Color(200, 200, 200)) &&
+							(butDL.getFillColor() == sf::Color(200, 200, 200)) &&
+							(butDR.getFillColor() == sf::Color(200, 200, 200))
+							))
+							if (suivant) // switcher selon le bouton
 						{
 							_question = _deck.tirer();
 
