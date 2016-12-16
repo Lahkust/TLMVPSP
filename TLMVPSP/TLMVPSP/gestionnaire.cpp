@@ -321,7 +321,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	txtDR.setPosition(sf::Vector2f(410, 230));
 
 	// texte question
-	sf::Text txtQ("Q", font, 25);
+	sf::Text txtQ("Q", font, 18);
 	txtQ.setFillColor(sf::Color::Black);
 	txtQ.setPosition(sf::Vector2f(0, 0));
 
