@@ -448,6 +448,8 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							butDR.setFillColor(sf::Color(200, 200, 200));
 
 							_question.getCarre(_reponses);
+
+							suivant = !suivant;
 						}
 						else
 						{
@@ -496,8 +498,9 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 								sound.setBuffer(victoire);
 								sound.play();
 							}
+
+							suivant = !suivant;
 						}
-						suivant = !suivant;
 					}
 				break;
 			}
