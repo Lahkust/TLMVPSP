@@ -161,17 +161,6 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	sf::Sound sound;
 
 
-	if (!defaite.loadFromFile("fail.wav"))
-	{
-		//erreur!
-	}
-
-	if (!victoire.loadFromFile("success.wav"))
-	{
-		//erreur!
-	}
-
-
 	///////Décision de deck
 
 
@@ -321,7 +310,7 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 	txtDR.setPosition(sf::Vector2f(410, 230));
 
 	// texte question
-	sf::Text txtQ("Q", font, 18);
+	sf::Text txtQ("Q", font, 20);
 	txtQ.setFillColor(sf::Color::Black);
 	txtQ.setPosition(sf::Vector2f(0, 0));
 
@@ -488,6 +477,10 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							{
 								//raté
 								// "OH NOES";
+								if (!defaite.loadFromFile("fail.wav"))
+								{
+									//erreur!
+								}
 								sound.setBuffer(defaite);
 								sound.play();
 							}
@@ -495,6 +488,12 @@ void gestionnaire::demo(sf::RenderWindow* screen[2])
 							{
 								//gagné
 								// "YEAH";
+
+
+								if (!victoire.loadFromFile("success.wav"))
+								{
+									//erreur!
+								}
 								sound.setBuffer(victoire);
 								sound.play();
 							}
